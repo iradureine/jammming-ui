@@ -1,6 +1,6 @@
 let api;
 if (process.env.NODE_ENV === 'development') {
-  api = 'http://localhost:4045';
+  api = 'http://localhost:3030';
 } else {
   api = 'https://jamming-api.herokuapp.com';
 }
