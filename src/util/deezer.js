@@ -1,8 +1,8 @@
 let api;
 if (process.env.NODE_ENV === 'development') {
-  api = 'https://jamming-api.herokuapp.com/';
+  api = 'https://jamming-api.herokuapp.com';
 } else {
-  api = 'https://jamming-api.herokuapp.com/';
+  api = 'https://jamming-api.herokuapp.com';
 }
 
 const Deezer = {
