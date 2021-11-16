@@ -8,7 +8,7 @@ import Deezer from '../../util/deezer';
 
 let api;
 if (process.env.NODE_ENV === 'development') {
-  api = 'http://localhost:4045';
+  api = 'http://localhost:3030';
 } else {
   api = 'https://jamming-api.herokuapp.com';
 }
@@ -21,6 +21,8 @@ class App extends React.Component{
        playlistName:'My Playlist',
       playlistTracks:[]
     };
+
+
     this.addTrack=this.addTrack.bind(this);
     this.removeTrack=this.removeTrack.bind(this);
     this.updatePlaylistName=this.updatePlaylistName.bind(this);
@@ -46,8 +48,7 @@ class App extends React.Component{
           playlistName: 'New Playlist',
           playlistTracks: [],
         });
-        document.getElementById('Playlist-name').value =
-          this.state.playlistName;
+        document.getElementById('Playlist-name').value = this.state.playlistName;
       });
     }
   }
@@ -94,15 +95,14 @@ class App extends React.Component{
   updatePlaylistName(name){
 this.setState({playlistName:name})
   }
-  addTrack(track){
-    let tracks= this.state.playlistTracks;
-    if (tracks.find(savedTrack =>savedTrack.id === track.id)) 
-    {
-      return;
+  addTrack(track) {
+    let tracks = this.state.playlistTracks;
+    if (!tracks.find((trackIndex) => trackIndex.id === track.id)) {
+      tracks.push(track);
+      this.setState({ playlistTracks: tracks });
     }
-    track.push(track);
-    this.setState({playlistTracks:tracks});
   }
+
   removeTrack(track){
     let tracks=this.state.playlistTracks;
     tracks = tracks.filter(currentTrack=> currentTrack.id!==track.id);
