@@ -8,7 +8,7 @@ import Deezer from '../../util/deezer';
 
 let api;
 if (process.env.NODE_ENV === 'development') {
-  api = 'http://localhost:3030';
+  api = 'https://jamming-api.herokuapp.com';
 } else {
   api = 'https://jamming-api.herokuapp.com';
 }
