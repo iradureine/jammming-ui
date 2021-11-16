@@ -1,8 +1,8 @@
 let api;
 if (process.env.NODE_ENV === 'development') {
-  api = 'http://localhost:8005/api/v1/deezer';
+  api = 'http://localhost:4045';
 } else {
-  api = 'https://leave-app-sys.herokuapp.com/api/v1/deezer';
+  api = 'https://jamming-api.herokuapp.com';
 }
 
 const Deezer = {
